@@ -1,94 +1,350 @@
-StudyGraph AI
-StudyGraph AI is a graph-powered learning assistant designed to help students understand programming concepts and their prerequisite relationships. It uses a knowledge graph to retrieve concept connections and learning-path information.
-Problem Statement
-Students often struggle to determine which programming concepts they should learn first and which concepts they need to understand before moving to advanced topics.
-Solution
-StudyGraph AI represents programming concepts and their prerequisite relationships in a graph database. The backend queries this graph to retrieve relevant relationships and learning paths, while the frontend provides an interface for students to interact with the system.
-For example:
-Java Basics → Classes & Objects → Inheritance → Polymorphism
-This is an illustrative learning sequence; actual results depend on the concepts and relationships stored in the graph.
-Features
-- Explore programming concepts and their relationships.
-- Represent prerequisite relationships using a knowledge graph.
-- Query graph data through a Spring Boot backend.
-- Retrieve learning-path information based on graph relationships.
-- Provide a React-based user interface for students.
-- Build toward AI-powered, explainable learning recommendations.
-Tech Stack
-- Frontend: React, JavaScript
-- Backend: Java, Spring Boot
-- Build Tool: Maven
-- Graph Database: FalkorDB
-- AI Integration: LangChain4j / Groq integration is under development, if not yet completed.
-System Architecture
-Student
-   ↓
-React Frontend
-   ↓
-Spring Boot Backend
-   ↓
-Graph Query Logic
-   ↓
-FalkorDB Knowledge Graph
-   ↓
-Learning Path and Concept Relationships
-   ↓
-React Frontend
+# 🧠 Personal Learning Assistant
 
-The application uses graph relationships to retrieve relevant learning information. The project aims to extend this functionality with an AI agent capable of selecting graph-query tools, reasoning across multiple relationships, and explaining its recommendations.
-Project Structure
-StudyGraph-AI/
-├── backend/
-│   ├── src/
-│   ├── pom.xml
-│   └── mvnw.cmd
-├── src/
-├── public/
-├── package.json
-└── README.md
+### A Graph-Powered Learning Assistant for Concepts
 
-The React frontend currently resides in the repository root, while the Spring Boot backend is located in the backend/ directory.
-Getting Started
-Prerequisites
-- Java JDK compatible with the backend configuration
-- Node.js and npm
-- FalkorDB
-- Git
-1. Start the Backend
-Open a terminal in the repository root:
-cd backend
-.\mvnw.cmd spring-boot:run
+Personal Learning Assistant AI is a graph-powered learning assistant designed to help students understand programming concepts, explore prerequisite relationships, and discover a logical sequence for learning technical topics.
 
-Ensure that FalkorDB is running and the backend database connection settings are configured correctly.
-2. Start the Frontend
-Open a second terminal in the repository root:
-npm install
-npm run dev
+The project combines a React frontend, a Java Spring Boot backend, and the FalkorDB graph database to represent and retrieve relationships between programming concepts.
 
-Open the local URL displayed in the terminal.
-Graph Data
-The knowledge graph must contain concept nodes and their relationships to produce meaningful learning paths.
-Example concepts include:
+The long-term goal is to integrate an AI agent that can interact with the knowledge graph, select appropriate graph-query tools, reason across multiple relationships, and provide explainable learning recommendations.
+
+---
+
+## 🎯 Problem Statement
+
+Learning programming languages involves understanding many connected concepts. Advanced topics often depend on knowledge of simpler concepts.
+
+For example, understanding polymorphism is easier when a student already understands classes, objects, and inheritance.
+
+However, students may struggle with questions such as:
+
+- Which concept should I learn first?
+- What prerequisites should I understand before studying a new topic?
+- How are different programming concepts connected?
+- What learning sequence should I follow?
+- Why should one concept be learned before another?
+
+A traditional list of topics does not always make these dependencies clear.
+
+## 💡 Our Solution
+
+Personal Learning Assistant AI represents programming concepts and their prerequisite relationships as a knowledge graph.
+
+The graph stores concepts as nodes and relationships between concepts as edges. The Spring Boot backend queries this graph to retrieve relevant relationships and learning-path information. The React frontend provides the interface through which students interact with the application.
+
+Instead of treating concepts as isolated topics, Personal learning assistant AI models how they relate to one another.
+
+This graph-based approach provides a foundation for future AI-powered reasoning and personalized learning recommendations.
+
+---
+
+## 🎯 Project Objectives
+
+The main objectives of Personal learning assistant AI are:
+
+1. Represent programming concepts in a structured knowledge graph.
+2. Store prerequisite relationships between concepts.
+3. Retrieve connected concepts through graph queries.
+4. Generate useful learning-path information from graph relationships.
+5. Provide a user-friendly interface for exploring concepts.
+6. Build a foundation for an AI agent that can use graph data to answer learning-related questions.
+7. Make future learning recommendations more transparent by explaining the relationships behind them.
+
+---
+
+## ✨ Key Features
+
+### 1. Graph-Based Knowledge Representation
+
+Programming concepts can be represented as nodes in FalkorDB, with relationships connecting related concepts.
+
+This structure makes it possible to query how concepts depend on or connect to one another.
+
+### 2. Prerequisite Relationships
+
+Concepts can be connected through prerequisite relationships.
+
+For example, a graph may represent that understanding inheritance helps prepare a student to learn polymorphism.
+
+The application can use these relationships to retrieve relevant learning information.
+
+### 3. Learning-Path Retrieval
+
+The backend queries the knowledge graph to retrieve concept relationships and learning-path information.
+
+The resulting sequence depends on the nodes, edges, and query logic available in the application.
+
+### 4. React-Based User Interface
+
+The frontend provides a web interface for students to interact with the learning assistant and access the application's available functionality.
+
+### 5. Spring Boot Backend
+
+The Java backend handles application logic and graph queries. It connects the frontend with the graph database and returns results through backend endpoints. And support multi-hop prerequisite traversal.
+
+### 6. Foundation for AI-Agent Integration
+
+The project is being developed toward an AI agent that can use graph-query tools to retrieve relevant information and explain learning recommendations.
+
+**Note:** AI-agent capabilities should be considered implemented only after the corresponding integration has been completed and tested.
+
+---
+
+## 🛠️ Technology Stack
+
+| Technology and Role |
+
+ React : Builds the frontend interface 
+ JavaScript : Implements frontend functionality 
+ Java : Backend programming language 
+ Spring Boot : Backend application and API development 
+ Maven : Backend dependency and build management 
+ FalkorDB : Stores and queries the knowledge graph 
+ Cypher-style graph queries : Retrieves graph relationships 
+ LangChain4j : Intended AI-agent integration, depending on implementation status 
+
+
+##  System Architecture
+
+The current graph-query workflow can be represented as follows:
+```
+
+                 Student
+                    |
+                    v
+             React Frontend
+                    |
+                    v
+           Spring Boot Backend
+                    |
+                    v
+             Graph Query Logic
+                    |
+                    v
+             FalkorDB Graph
+                    |
+                    v
+        Concept and Prerequisite Data
+                    |
+                    v
+         Learning-Path Information
+                    |
+                    v
+             React Frontend
+```
+
+
+### Planned AI-Agent Architecture
+
+The project aims to extend this workflow with an AI agent:
+
+```text
+Student Question
+       |
+       v
+    AI Agent
+       |
+       v
+Graph Query Tool Selection
+       |
+       v
+   FalkorDB Graph
+       |
+       v
+Retrieved Graph Information
+       |
+       v
+Reasoning and Explanation
+       |
+       v
+Learning Recommendation
+```
+
+This second diagram represents the intended direction of development. It should not be interpreted as a fully implemented workflow unless all components are operational.
+
+---
+
+## 🔄 How It Works
+
+The current graph-based workflow follows these general steps:
+
+1. A student interacts with the React frontend.
+2. The frontend sends a request to the Spring Boot backend.
+3. The backend executes the relevant application logic.
+4. Graph queries retrieve concepts and prerequisite relationships from FalkorDB.
+5. The backend processes the query results.
+6. The results are returned to the frontend.
+7. The frontend displays the available learning-path or relationship information.
+
+The exact workflow depends on the endpoint and functionality being used.
+
+---
+
+## 🗺️ Knowledge Graph Example
+
+Consider the following programming concepts:
+
 - Java Basics
 - Classes & Objects
 - Inheritance
 - Polymorphism
-These concepts can be connected using prerequisite relationships. The learning-path results depend on the graph data available in FalkorDB.
-Graph Hacks Track 1 Alignment
-The project is being developed toward graph-based AI-agent capabilities, including:
-- Multi-hop reasoning: Exploring relationships across multiple concepts.
-- Graph queries as tools: Enabling an AI agent to retrieve relevant information from FalkorDB.
-- Tool selection: Allowing the agent to select suitable graph-query tools for a request.
-- Explainable results: Providing reasoning behind recommended learning paths.
-- Graph-based actions: Using graph information to support learning-related tasks.
-These capabilities should be considered complete only when implemented and tested.
-Future Improvements
-- Complete AI-agent and tool-calling integration.
-- Improve multi-hop prerequisite reasoning.
-- Provide explanations for recommended learning paths.
-- Add automated tests and improve error handling.
-- Create a demonstration of graph-based learning-path generation.
-Security
-API keys, database credentials, and other sensitive information should be stored in environment variables or local configuration files. Never commit secrets to GitHub.
-License
+
+An illustrative learning sequence is:
+
+```text
+Java Basics
+     |
+     v
+Classes & Objects
+     |
+     v
+Inheritance
+     |
+     v
+Polymorphism
+```
+
+The graph may represent these connections using a prerequisite relationship such as:
+
+`(Concept)-[:PREREQUISITE_OF]->(Concept)`
+
+A corresponding illustrative graph query could be:
+
+```cypher
+MATCH (c1:concept)-[:PREREQUISITE_OF]->(c2:concept)
+RETURN c1.name, c2.name
+```
+
+This query retrieves connected concept pairs from the graph.
+
+The example illustrates the graph model and query approach. Actual results depend on the data stored in FalkorDB and the application's implementation.
+
+---
+
+## 📂 Project Structure
+
+The repository currently keeps the React frontend in the root directory and the Spring Boot backend inside `backend/`.
+
+```text
+StudyGraph-AI/
+│
+├── backend/
+│   ├── src/
+│   │   ├── main/
+│   │   └── test/
+│   ├── pom.xml
+│   ├── mvnw
+│   └── mvnw.cmd
+│
+├── src/
+│   └── React application source
+│
+├── public/
+│   └── Static frontend assets
+│
+├── package.json
+├── package-lock.json
+└── README.md
+```
+---
+
+## 🚀 Getting Started
+
+Follow these instructions to run the project locally.
+
+### Prerequisites
+
+Install or configure the following:
+
+- Git
+- Node.js and npm
+- A Java JDK compatible with the backend project
+- FalkorDB
+- Access to the project's required configuration settings
+
+### 1. Clone the Repository
+
+```bash
+git clone <GITHUB_REPOSITORY_URL>
+cd Personal-Learning-Assistant
+```
+
+### 2. Configure FalkorDB
+
+Start your FalkorDB instance.
+
+Ensure that the backend's graph connection settings match your local environment.
+
+The knowledge graph must contain the concept nodes and relationships required by the application's queries.
+
+### 3. Start the Backend
+
+Open a terminal in the repository root:
+
+```powershell
+cd backend
+.\mvnw.cmd spring-boot:run
+```
+
+On macOS or Linux, use:
+
+```bash
+./mvnw spring-boot:run
+```
+
+If the Maven Wrapper is unavailable, use an installed Maven version:
+
+```bash
+mvn spring-boot:run
+```
+
+Check the backend configuration for the application port and database connection settings.
+
+### 4. Start the Frontend
+
+Open a second terminal in the repository root:
+
+```bash
+npm install
+npm run dev
+```
+
+Open the local URL printed by the frontend development server.
+
+### 5. Test the Application
+
+Once the frontend, backend, and database are running:
+
+1. Open the frontend in your browser.
+2. Try the available concept and learning-path functionality.
+3. Verify that backend requests return the expected results.
+4. Check that the graph contains the relationships required by your queries.
+
+If a request fails, verify the backend status, database connection settings, and graph data.
+
+---
+
+## 🔭 Future Improvements
+
+Potential improvements include:
+
+- Complete and test AI-agent integration.
+- Expose graph queries as agent tools.
+- Improve learning-path generation.
+- Provide explanations grounded in retrieved graph relationships.
+- Add automated tests for backend endpoints and graph queries.
+- Improve validation and error handling.
+- Add a demonstration showing the complete student workflow.
+
+---
+
+## 📄 License
+
 No license has been specified yet.
+
+---
+
+## 👩‍💻 Project Status
+
+Personal-Learning-Assistant AI is an ongoing project focused on graph-based learning paths and prerequisite relationships, with AI-agent capabilities as a development direction.
+
