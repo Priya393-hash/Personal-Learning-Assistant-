@@ -11,24 +11,6 @@ import AskAI from './AskAI'
 const App = () => {
   return (
     <div>
-      {/*<Display/>
-      <InputBox/>
-      <ConceptAdd/>
-      <PrerequisiteRelationship/>*/}
-      {/*<nav>
-        <Link to="/">Home </Link>  | {" "}
-        <Link to="/search"> Search-Concepts</Link> | {" "}
-        <Link to="/add-concept"> Add-Concept </Link> |{" "}
-        <Link to="/relationships"> Relationships</Link> 
-      </nav>
-      <Routes>
-        <Route path='/' element={<Display/>}/>
-        <Route path='/search' element={<InputBox/>}/>
-        <Route path='/add-concept' element={<ConceptAdd/>}/>
-        <Route path='/relationships' element={<PrerequisiteRelationship/>}/>
-      </Routes>
-      <Urlbox/>
-      <AskAI/>*/}
       <InputUrl/>
     </div>
   )
