@@ -22,22 +22,14 @@ public class LearningPathController {
             this.service = new FalkorDBService();
         }
 
-        //sare data access kar rahe hai
+        
         @GetMapping("/learning-path")
-        /*public String Studentdata(){
-            return "Inheritance->Polimorphism";
-        } ye hum phele use test kiye ki browser pe ye return hardcodec kata hai ya nahi */
-        // ab hum direct database se connect karenge
+        
         public List<String> getLearningPath1(){
             return service.getLearningPath();
         }
 
-        //only spicific data access karenge user se concept liye or falkordb database me check kar ke response borwser pr return kar diy
-        /*@GetMapping("/prerequisite")
-        public String getPrerequisite(@RequestParam String concept){
-            return concept;
-        }*/
-       //user se concept le ke edge se end concept return kare browser pe
+        
         @GetMapping ("/prerequisite")
         public List<String> getPrerequisite(@RequestParam String concept){
             return service.getPrerequisite(concept);
